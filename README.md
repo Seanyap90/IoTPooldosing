@@ -1,4 +1,6 @@
 # IoT for Swimming Pool Chemical Maintenance
+*Strictly not for any public distribution.
+This describes the system architecture for a IoT-based system for automated chemical maintenance.  Instead of a menial worker throwing chlorine or trying to fiddle with industrial water treatment equipment such as dosing pumps and water sensors, this system does this accordingly
 
 ## Hardware involved
 - Any microprocessor such as a Raspberry pi
@@ -8,6 +10,7 @@
 - LED lights
 - Dosing pumps (optional - dependent on swimming pool plant rooms)
 - Routers and repeaters*
+*dependent on available networking infrastructure at the swimming pool.
 
 ## Hardware System Setup
 1. Sensors
@@ -31,7 +34,7 @@ APIs/libraries required:
 - Dataplicity - remote access to the system
 - Flask
 
-* Ideally should have a requirements.txt file for easy installation
+*Ideally should have a requirements.txt file for easy installation
 
 ![systemarch](https://user-images.githubusercontent.com/34641712/132084848-725e713a-3f27-4c4b-877b-c755f2443051.png)
 
