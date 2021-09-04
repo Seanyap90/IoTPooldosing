@@ -60,3 +60,6 @@ Dashboard view and Pump control view:
   2. Created a dictionary to attach name and state to digital i/o pins
   3. Two functions for declaration of auto mode and manual mode
   4. Main code: Divided into a few actions: login page, default mode, change to manual and change to auto, update amount of minutes of chlorination left during manual mode when      user relogins
+
+## Crontab.txt
+Copy the commands in this txt file into crontab for automatic and headless running of code
