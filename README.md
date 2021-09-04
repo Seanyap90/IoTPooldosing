@@ -18,5 +18,5 @@ Need both the probes and their corresponding reading chips:
 2. Actual System
 <img width="849" alt="dosauto" src="https://user-images.githubusercontent.com/34641712/132083613-ce6f88af-20b0-47fe-b997-8294d480abd7.PNG">
 
-Deployment Examples
+3. Deployment Examples
 <img width="397" alt="deployment" src="https://user-images.githubusercontent.com/34641712/132083648-c32bd120-d341-4510-b0e2-5213523a1635.PNG">
