@@ -10,15 +10,18 @@
 - Routers and repeaters*
 
 ## Hardware System Setup
-1. Sensor
-Need both the probes and their corresponding reading chips:
+1. Sensors
+Both probes and their corresponding reading chips are required:
 - https://atlas-scientific.com/ezo-ph-circuit/
 - https://atlas-scientific.com/ezo-orp-circuit/
 
-2. Actual System
+2. Actual System - Microprocessor and Pump actuation
 <img width="849" alt="dosauto" src="https://user-images.githubusercontent.com/34641712/132083613-ce6f88af-20b0-47fe-b997-8294d480abd7.PNG">
 
-3. Deployment Examples
+## Deployment Examples
+1.  Microprocessor, sensors and pump actuation all hardwired in 1 system
+2.  Separate sub-systems - Microprocessor and sensors at pool side and pump actuation in a plant room.  Wifi communication between these systems.
+
 <img width="397" alt="deployment" src="https://user-images.githubusercontent.com/34641712/132083648-c32bd120-d341-4510-b0e2-5213523a1635.PNG">
 
 ## Software/Middleware Setup
@@ -38,11 +41,11 @@ Dashboard view and Pump control view:
 ## Dosing.py
 • Purpose: Gather sensor data, plot sensor data hourly and decide whether chlorine is needed at the pool every hour.
 • Function:
-  1. Pre-initialisation; importing alert.py and graph.py 
+  1. Pre-initialisation; importing sms_gmail_alert.py, graph.py and backup_files_email.py
   2. Initialisation to inform that the device is about the start
   3. Function to derive chlorine values at corresponding pH value;
   4. the main code to hourly retrieve and analyse sensor values to determine whether the pool needs an injection of chlorine
-  5. Main code activates graph.py hourly and alert.py based on the sensor values
+  5. Main code activates sms_gmail_alert.py, graph.py and backup_files_email.py based on the sensor values and scheduled system backups.
 
 ## App.py
 • Purpose: Allow user to view the pH and Chlorine values on a custom interface while giving the user the option to switch between automatic and manual mode. That means switching between python and HTML scripts.
