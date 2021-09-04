@@ -30,11 +30,9 @@ APIs required:
 ![systemarch](https://user-images.githubusercontent.com/34641712/132084848-725e713a-3f27-4c4b-877b-c755f2443051.png)
 
 ## Web app
-Left: Dashboard view
-Right: Pump control view
+Dashboard view and Pump control view:
 
 ![image](https://user-images.githubusercontent.com/34641712/132084881-2ee7b379-e504-4683-8a19-0bebfd6f624b.png)
-
 ![image](https://user-images.githubusercontent.com/34641712/132084888-ebc39eae-822e-4b7c-805a-586ffe447898.png)
 
 ## Dosing.py
