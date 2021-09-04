@@ -1,0 +1,6 @@
+@reboot sudo python /home/pi/webserver/app.py >> /home/pi/webserver.log 2>&1
+@reboot sudo python /home/pi/Main/dosing.py >> /home/pi/dosing.log 2>&1
+@reboot sudo python /home/pi/webserver/pump_controller.py >> /home/pi/pump.log 2>&1
+#@reboot sleep 5 ; bash /home/pi/run_firefox.sh
+50 0 * * 6 sudo /home/pi/fileclean.sh
+3 */6 * * 7 /home/pi/weeklyemail.sh
