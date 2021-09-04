@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+   <meta name="mobile-web-app-capable" content="yes">
+   <meta name="viewport" content = "height = device-height, width = device-width, user-scalable = no" />
+   <title>DosAuto Dashboard</title>
+
+   <!-- Latest compiled and minified CSS -->
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+   <!-- Optional theme -->
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+   <!-- Latest compiled and minified JavaScript -->
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW11PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+   <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='style.css') }}">
+   </head>
+
+<body>
+   <h1>DosAuto Dashboard</h1>
+   <div class="row">
+   <div class="col-md-6">
+   		<a href="https://plot.ly/~dosauto/611/?share_key=Tg3iC2gZC0ORrS6yVGZDjm" target="_blank" title="Utown Test Dosing" style="display: block; text-align: center;"><img src="https://plot.ly/~dosauto/611.png?share_key=Tg3iC2gZC0ORrS6yVGZDjm" alt="Utown Test Dosing" style="max-width: 100%;width: 600px;"  width="600" onerror="this.onerror=null;this.src='https://plot.ly/404.png';" /></a>
+   		<script data-plotly="dosauto:611" sharekey-plotly="Tg3iC2gZC0ORrS6yVGZDjm" src="https://plot.ly/embed.js" async></script>
+      </div>
+
+      <div class="col-md-6 mh-1">
+   		<a href="https://plot.ly/~dosauto/609/?share_key=6Q0Da0roWB18FXq3BXaPEh" target="_blank" title="Utown Test Dosing_Table" style="display: block; text-align: center;"><img src="https://plot.ly/~dosauto/609.png?share_key=6Q0Da0roWB18FXq3BXaPEh" alt="Utown Test Dosing_Table" style="max-width: 100%;width: 600px;"  width="600" onerror="this.onerror=null;this.src='https://plot.ly/404.png';" /></a>
+   		<script data-plotly="dosauto:609" sharekey-plotly="6Q0Da0roWB18FXq3BXaPEh" src="https://plot.ly/embed.js" async></script>
+      </div>
+   </div>
+   </br>
+   <div>
+   <script language="JavaScript" type="text/javascript">
+          document.write('<script language="JavaScript" src="https://www.worldweatheronline.com/widget/v4/weather-widget.ashx?q=Singapore%2c+Singapore&width=220&custom_header=Singapore, Singapore&num_of_day=2&title_bg_color=020202&title_text_color=FFFFFF&widget_bg_color=FFFFFF&widget_text_color=020202&type=js&icon=0&cb=' + Math.random() + '" type="text/javascript"><\/scr' + 'ipt>');
+        </script>
+        <noscript>
+          <a href="https://www.worldweatheronline.com" alt="Singapore, Singapore weather">7 day Singapore, Singapore weather</a> provided by <a href="https://www.worldweatheronline.com">World Weather Online</a>
+        </noscript>
+   </div>
+   </br>
+   <p>Dosing Control</p>
+   </br>
+   <button type="button" onclick="switchMode(this)" id="1">Automatic</button>
+   <button type="button" onclick="switchMode(this)" id="2">Manual</button>
+   <script type="text/javascript">
+   var state1 = 1;
+   var state2 = 0;
+   document.getElementById(1).style.backgroundColor = "#00FF00";
+   document.getElementById(2).style.backgroundColor = "#C0C0C0";
+   function switchMode(button) {
+		var x = button.id;
+		var property = document.getElementById(x);
+		switch (x) {
+			case '1':
+				if (state1==0) {
+					property.style.backgroundColor = "#00FF00";
+					document.getElementById(2).style.backgroundColor = "#C0C0C0";
+					state1 = 1;
+					state2 = 0;
+					window.location="/{{16}}/auto";
+				}
+				break;
+			case '2':
+				if (state2==0) {
+					property.style.backgroundColor = "#00FF00";
+					document.getElementById(1).style.backgroundColor = "#C0C0C0";
+					state1 = 0;
+					state2 = 1;
+					window.location="/{{16}}/manual";
+				}
+				break;
+		}
+   }
+   </script>
+   </br>
+   {% block LED16 %}
+   <h2>Pump 1
+   {% if pins[16].state == true %}
+      is currently <strong>on</strong></h2><div class="row"><div class="col-md-2">
+      <a href="/" class="btn btn-block btn-lg btn-default" role="button" onclick="return false;" disabled>Turn off</a></div></div>
+
+   {% else %}
+      is currently <strong>off</strong></h2><div class="row"><div class="col-md-2">
+      <a href="/" class="btn btn-block btn-lg btn-primary" role="button" onclick="return false;" disabled>Turn on</a></div></div>
+
+   {% endif %}
+   {% endblock %}
+
+   {% block LED11 %}
+   <h2>Pump 2
+   {% if pins[11].state == true %}
+      is currently <strong>on</strong></h2><div class="row"><div class="col-md-2">
+      <a href="/" class="btn btn-block btn-lg btn-default" role="button" onclick="return false;" disabled>Turn off</a></div></div>
+
+   {% else %}
+      is currently <strong>off</strong></h2><div class="row"><div class="col-md-2">
+      <a href="/" class="btn btn-block btn-lg btn-primary" role="button" onclick="return false;" disabled>Turn on</a></div></div>
+   {% endif %}
+   {% endblock %}
+
+
+</body>
+</html>

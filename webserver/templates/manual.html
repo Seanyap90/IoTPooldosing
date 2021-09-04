@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+   <meta name="mobile-web-app-capable" content="yes">
+   <meta name="viewport" content = "height = device-height, width = device-width, user-scalable = no" />
+   <title>DosAuto Dashboard</title>
+
+   <!-- Latest compiled and minified CSS -->
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+   <!-- Optional theme -->
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+   <!-- Latest compiled and minified JavaScript -->
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW11PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+   <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='style.css') }}">
+   </head>
+
+<body>
+   <h1>DosAuto Dashboard</h1>
+   <div class="row">
+   <div class="col-md-6">
+   		<a href="https://plot.ly/~dosauto/611/?share_key=Tg3iC2gZC0ORrS6yVGZDjm" target="_blank" title="Utown Test Dosing" style="display: block; text-align: center;"><img src="https://plot.ly/~dosauto/611.png?share_key=Tg3iC2gZC0ORrS6yVGZDjm" alt="Utown Test Dosing" style="max-width: 100%;width: 600px;"  width="600" onerror="this.onerror=null;this.src='https://plot.ly/404.png';" /></a>
+   		<script data-plotly="dosauto:611" sharekey-plotly="Tg3iC2gZC0ORrS6yVGZDjm" src="https://plot.ly/embed.js" async></script>
+      </div>
+
+      <div class="col-md-6 mh-1">
+   		<a href="https://plot.ly/~dosauto/609/?share_key=6Q0Da0roWB18FXq3BXaPEh" target="_blank" title="Utown Test Dosing_Table" style="display: block; text-align: center;"><img src="https://plot.ly/~dosauto/609.png?share_key=6Q0Da0roWB18FXq3BXaPEh" alt="Utown Test Dosing_Table" style="max-width: 100%;width: 600px;"  width="600" onerror="this.onerror=null;this.src='https://plot.ly/404.png';" /></a>
+   		<script data-plotly="dosauto:609" sharekey-plotly="6Q0Da0roWB18FXq3BXaPEh" src="https://plot.ly/embed.js" async></script>
+      </div>
+   </div>
+   </br>
+   <div>
+   <script language="JavaScript" type="text/javascript">
+          document.write('<script language="JavaScript" src="https://www.worldweatheronline.com/widget/v4/weather-widget.ashx?q=Singapore%2c+Singapore&width=220&custom_header=Singapore, Singapore&num_of_day=2&title_bg_color=020202&title_text_color=FFFFFF&widget_bg_color=FFFFFF&widget_text_color=020202&type=js&icon=0&cb=' + Math.random() + '" type="text/javascript"><\/scr' + 'ipt>');
+        </script>
+        <noscript>
+          <a href="https://www.worldweatheronline.com" alt="Singapore, Singapore weather">7 day Singapore, Singapore weather</a> provided by <a href="https://www.worldweatheronline.com">World Weather Online</a>
+        </noscript>
+   </div>
+   </br>
+   <p>Dosing Control</p>
+   </br>
+   <button type="button" onclick="switchMode(this)" id="1">Automatic</button>
+   <button type="button" onclick="switchMode(this)" id="2">Manual</button>
+   <script type="text/javascript">
+   var state1 = 0;
+   var state2 = 1;
+   document.getElementById(2).style.backgroundColor = "#00FF00";
+   document.getElementById(1).style.backgroundColor = "#C0C0C0";
+   function switchMode(button) {
+		var x = button.id;
+		var property = document.getElementById(x);
+		switch (x) {
+			case '1':
+				if (state1==0) {
+					property.style.backgroundColor = "#00FF00";
+					document.getElementById(2).style.backgroundColor = "#C0C0C0";
+					state1 = 1;
+					state2 = 0;
+					window.location="/{{16}}/auto";
+				}
+				break;
+			case '2':
+				if (state2==0) {
+					property.style.backgroundColor = "#00FF00";
+					document.getElementById(1).style.backgroundColor = "#C0C0C0";
+					state1 = 0;
+					state2 = 1;
+					window.location="/{{16}}/manual";
+				}
+				break;
+		}
+   }
+   </script>
+   </br>
+   {% block LED16 %}
+   <h2>Pump 1
+   {% if pins[16].state == true %}
+      is currently <strong>on</strong></h2><div class="row"><div class="col-md-2">
+      <a href="/{{16}}/off" class="btn btn-block btn-lg btn-default" role="button">Turn off</a></div></div>
+      <div id="counter1">Automatically turn off after <span id="min1"></span> <span id="secs1"> </span></div>
+	<script type="text/javascript">
+		count1_min = Math.floor(Number( {{ pins[16].seconds_left }} ) / 60);
+		count1 = Number( {{ pins[16].seconds_left }} ) % 60;
+
+		if (count1_min >0) {
+			document.getElementById("min1").innerHTML=count1_min + " minutes";
+		}
+		else {
+			document.getElementById("min1").innerHTML="";
+
+		}
+		document.getElementById("secs1").innerHTML=count1 + " seconds";
+		counter1=setInterval(timer1, 1000);
+		function timer1(){
+		count1=count1-1;
+		if (count1 <= 0 && count1_min < 0 ){
+			clearInterval(counter1);
+			window.location="/{{16}}/off";
+			return;  }
+		else if (count1 <0 && count1_min >= 0) {
+			count1 = 60
+			count1_min -= 1;
+			return;
+		}
+		if (count1_min > 0) {
+			document.getElementById("min1").innerHTML=count1_min + " minutes";
+		}
+		else {
+			document.getElementById("min1").innerHTML="";
+		}
+		document.getElementById("secs1").innerHTML=count1 + " secs";
+		deadline1_min = Math.floor(Number( {{ pins[16].seconds_left }} ) / 60);
+		deadline1 = Number( {{ pins[16].seconds_left }} ) % 60;
+		localStorage.setItem("count1_min", String(count1_min));
+		localStorage.setItem("count1", String(count1-1));
+
+		var timer_1 = setTimeout(function(){
+			window.location="/{{16}}/off"
+		},deadline1_min*60*1000 + deadline1*1000);}
+    	</script>
+	<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+   {% else %}
+      is currently <strong>off</strong></h2><div class="row"><div class="col-md-2">
+      <a href="/{{16}}/on" class="btn btn-block btn-lg btn-primary" role="button">Turn on</a></div></div>
+	<script>
+		localStorage.setItem("count1_min", {{ pins[16].timer }});
+		localStorage.setItem("count1", "0");
+	</script>
+   {% endif %}
+   {% endblock %}
+
+   {% block LED11 %}
+   <h2>Pump 2
+   {% if pins[11].state == true %}
+      is currently <strong>on</strong></h2><div class="row"><div class="col-md-2">
+      <a href="/{{11}}/off" class="btn btn-block btn-lg btn-default" role="button">Turn off</a></div></div>
+      <div id="counter2">Automatically turn off after <span id="min2"></span> <span id="secs2"> </span></div>
+	<script type="text/javascript">
+
+		count2_min = Math.floor(Number( {{ pins[11].seconds_left }} ) / 60);
+		count2 = Number( {{ pins[11].seconds_left }} ) % 60;
+
+		if (count2_min > 0) {
+			document.getElementById("min2").innerHTML=count2_min + " minutes";
+		}
+		else {
+			document.getElementById("min2").innerHTML="";
+		}
+		document.getElementById("secs2").innerHTML=count2 + " seconds";
+		counter2=setInterval(timer2, 1000);
+		function timer2(){
+		count2=count2-1;
+		if (count2 <= 0 && count2_min < 0 ){
+			clearInterval(counter2);
+			window.location="/{{11}}/off";
+			return; }
+		else if (count2 < 0 && count2_min >= 0) {
+			count2 = 60
+			count2_min -= 1;
+			return; }
+		if (count2_min > 0) {
+			document.getElementById("min2").innerHTML=count2_min + " minutes";
+		}
+		else {
+			document.getElementById("min2").innerHTML="";
+		}
+		document.getElementById("secs2").innerHTML=count2 + " secs";
+		deadline2_min = Math.floor(Number( {{ pins[11].seconds_left }} ) / 60);
+		deadline2 = Number( {{ pins[11].seconds_left }} ) % 60;
+		localStorage.setItem("count2_min", String(count2_min));
+		localStorage.setItem("count2", String(count2-1));
+
+		var timer_2 = setTimeout(function(){
+			window.location="/{{11}}/off"
+		},deadline2_min*60*1000 + deadline2*1000);}
+    	</script>
+	<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+   {% else %}
+      is currently <strong>off</strong></h2><div class="row"><div class="col-md-2">
+      <a href="/{{11}}/on" class="btn btn-block btn-lg btn-primary" role="button">Turn on</a></div></div>
+	<script>
+		localStorage.setItem("count2_min", {{ pins[11].timer }});
+		localStorage.setItem("count2", "0");
+	</script>
+   {% endif %}
+   {% endblock %}
+
+   </br>
+   </br>
+   {% block Timer %}
+   The current timer for PUMP1 is {{ pins[16].timer }} minutes. </br>
+   Input new value: <input id="newTimer1" type='text'>
+   <input type="submit" value="Save" onclick="saveTimer1()" style="color: black"/>
+   <script type="text/javascript">
+	var timer1_input = document.getElementById("newTimer1");
+	function saveTimer1() {
+		window.location="/{{16}}/timer/"+timer1_input.value;
+	}
+
+   </script>
+   </br>
+   </br>
+   The current timer for PUMP2 is {{ pins[11].timer }} minutes. </br>
+   Input new value: <input id="newTimer2" type='text' >
+   <input type="submit" value="Save" onclick="saveTimer2()" style="color: black" />
+   <script type="text/javascript">
+	var timer2_input = document.getElementById("newTimer2");
+	function saveTimer2() {
+		window.location="/{{11}}/timer/"+timer2_input.value;
+	}
+
+   </script>
+   </br>
+   {% endblock %}
+
+
+</body>
+</html>

@@ -1,0 +1,13 @@
+GPIO BOARD:
+set OUT: 36, 38, 40, 35, 37
+
+state1 = GPIO.input(36) = 16
+state2 = GPIO.input(38) = 20
+state3 = GPIO.input(40) = 21	(Red LED)
+state4 = GPIO.input(35) = 19	(Pump)
+state5 = GPIO.input(37) = 26	(Pump)
+
+FC Low: 40 true (LED)
+35 true
+37 true
+
