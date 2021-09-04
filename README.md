@@ -25,10 +25,13 @@ Both probes and their corresponding reading chips are required:
 <img width="397" alt="deployment" src="https://user-images.githubusercontent.com/34641712/132083648-c32bd120-d341-4510-b0e2-5213523a1635.PNG">
 
 ## Software/Middleware Setup
-APIs required:
+APIs/libraries required:
 - Plotly - to display graphs on webapp dashboard
 - Textbelt - send SMS
 - Dataplicity - remote access to the system
+- Flask
+
+* Ideally should have a requirements.txt file for easy installation
 
 ![systemarch](https://user-images.githubusercontent.com/34641712/132084848-725e713a-3f27-4c4b-877b-c755f2443051.png)
 
