@@ -10,6 +10,7 @@ This describes the system architecture for a IoT-based system for automated chem
 - LED lights
 - Dosing pumps (optional - dependent on swimming pool plant rooms)
 - Routers and repeaters*
+
 *dependent on available networking infrastructure at the swimming pool.
 
 ## Hardware System Setup
@@ -35,8 +36,9 @@ APIs/libraries required:
 - Flask
 
 *Ideally should have a requirements.txt file for easy installation
+![DosAuto IoT System diagram](https://user-images.githubusercontent.com/34641712/166080352-e57188c2-36ef-4342-8b78-36c7e9981c4f.png)
 
-![systemarch](https://user-images.githubusercontent.com/34641712/132084848-725e713a-3f27-4c4b-877b-c755f2443051.png)
+
 
 ## Web app
 Dashboard view and Pump control view:
