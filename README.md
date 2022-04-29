@@ -40,9 +40,12 @@ APIs/libraries required:
 
 
 ## Web app
-Dashboard view and Pump control view:
+View from mobile phone:
 
 ![image](https://user-images.githubusercontent.com/34641712/132084881-2ee7b379-e504-4683-8a19-0bebfd6f624b.png)
+
+Login, Monitoring and Pump control interface:
+
 ![DosAuto Monitoring Interface](https://user-images.githubusercontent.com/34641712/166080991-8dddb0e9-8422-4558-a377-84f7ec5528ad.png)
 ![image](https://user-images.githubusercontent.com/34641712/132084888-ebc39eae-822e-4b7c-805a-586ffe447898.png)
 
