@@ -14,9 +14,7 @@ This describes the system architecture for a IoT-based system for automated chem
 *dependent on available networking infrastructure at the swimming pool.
 
 ## Hardware System Setup
-1. Sensors
-
-Both probes and their corresponding reading chips are required:
+1. Sensors - Both probes and their corresponding reading chips are required:
 - https://atlas-scientific.com/ezo-ph-circuit/
 - https://atlas-scientific.com/ezo-orp-circuit/
 
