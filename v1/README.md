@@ -1,6 +1,6 @@
 # IoT for Swimming Pool Chemical Maintenance
 *Strictly not for any public distribution.
-This describes the system architecture for a IoT-based system for automated chemical maintenance.  Instead of a menial worker throwing chlorine or trying to fiddle with industrial water treatment equipment such as dosing pumps and water sensors, this system does this accordingly
+This describes the system architecture for a IoT-based system for automated chemical maintenance.  Instead of a menial worker throwing chlorine or trying to fiddle with industrial water treatment equipment such as dosing pumps and water sensors, this system does this accordingly. 
 
 ## Hardware involved
 - Any microprocessor such as a Raspberry pi
