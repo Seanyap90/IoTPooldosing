@@ -13,3 +13,5 @@
 
 <h2>High Level System Architecture v1.0</h2>
 
+![PoolmgtSolnArchi](https://github.com/user-attachments/assets/a09a7c0f-bdd1-47c9-9fb5-baa8dfc01879)
+
