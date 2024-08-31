@@ -11,7 +11,15 @@
 
 ![PoolMgtEnterpriseArchitecture](https://github.com/user-attachments/assets/39a7e70e-c15d-4e3f-aa36-217327327fdd)
 
-<h2>High Level System Architecture v1.0</h2>
+<h2>High Level System Architecture v1.0: Building from DosAuto</h2>
 
-![PoolmgtSolnArchi](https://github.com/user-attachments/assets/a09a7c0f-bdd1-47c9-9fb5-baa8dfc01879)
+![PoolmgtArchi_V1](https://github.com/user-attachments/assets/c277ef38-88c5-439f-b0a4-a3206c2e08ac)
+
+
+
+
+
+
+
+
 
