@@ -55,7 +55,7 @@ Value stream mapping could be useful in quantifying point 2, and 4 with data fro
 <h4>Message Broker, Datastream and Database</h4>
 
 <h4>Data storage</h4>
-<p>A common data storage to store all IoT and sensor data for this application</p>
+<p>A common data storage to store all IoT and sensor data for this application.  It will also store react files for client side applications.</p>
 
 <h4>Business Logics</h4>
 <p>For facilitating real time operations as well as any other real time elements on the client, we will preliminarily make use of serverless and in memory storage (such as Redis).  For analytics and reporting, serverless as well as IoT analytics can be utilised for pipelines</p>
