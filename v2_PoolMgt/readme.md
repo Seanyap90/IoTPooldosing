@@ -13,13 +13,7 @@
 
 <h2>High Level System Architecture v1.0: Building from DosAuto</h2>
 
-![PoolmgtArchi_V1](https://github.com/user-attachments/assets/c277ef38-88c5-439f-b0a4-a3206c2e08ac)
-
-
-
-
-
-
+![PoolmgtArchi_V1](https://github.com/user-attachments/assets/bdf0a4b2-5e5a-452e-88d0-5e294e5b67c9)
 
 
 
